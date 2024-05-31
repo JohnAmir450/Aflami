@@ -1,4 +1,4 @@
-# aflami
+# Aflami
 
 A new Flutter project.
 
