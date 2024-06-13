@@ -15,18 +15,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812),
+      designSize: const Size(360, 800),
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Aflami',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          scaffoldBackgroundColor: Colors.white,
           useMaterial3: true,
         ),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.splashScreen,
+        initialRoute: Routes.onboardingScreen,
       ),
     );
   }

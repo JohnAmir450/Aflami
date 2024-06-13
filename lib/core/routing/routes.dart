@@ -1,12 +1,12 @@
 class Routes {
   //splash
 
-  static const String splashScreen = '/splashScreen';
+  static const String onboardingScreen = '/onBoardingScreen';
 
   //auth
 
   static const String loginScreen = '/loginScreen';
-  static const String signUpScreen = '/signUpScreen';
+  static const String registerScreen = '/registerScreen';
 
 //home
 
