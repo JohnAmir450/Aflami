@@ -15,15 +15,15 @@ class TextStyles {
     color: Colors.black,
   );
 
-  static const TextStyle font32BlueBold = TextStyle(
+  static const TextStyle font32WhiteSemiBold = TextStyle(
     fontSize: 32,
-    fontWeight: FontWeightHelper.bold,
-    color: ColorsManager.mainBlue,
+    fontWeight: FontWeightHelper.semiBold,
+    color: Colors.white,
   );
-  static const TextStyle font13BlueRegular = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeightHelper.regular,
-    color: ColorsManager.mainBlue,
+  static const TextStyle font12GreyLight = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeightHelper.light,
+    color: Color(0xffFAF3DD),
   );
 
   static const TextStyle font14DarkBlueMedium = TextStyle(
@@ -41,10 +41,10 @@ class TextStyles {
     fontWeight: FontWeightHelper.medium,
     color: ColorsManager.darkBlue,
   );
-   static const TextStyle font15RedMedium = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeightHelper.medium,
-    color: Colors.red,
+   static const TextStyle font18WhiteLight = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeightHelper.light,
+    color: Colors.white,
   );
 
   static const TextStyle font24BlueBold = TextStyle(
@@ -63,6 +63,11 @@ class TextStyles {
     color: ColorsManager.mainGrey,
   );
 
+static const TextStyle font15RedMedium = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeightHelper.medium,
+    color: Colors.red,
+  );
   static const TextStyle font16WhiteSemiBold = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
