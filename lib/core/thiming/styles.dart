@@ -20,6 +20,12 @@ class TextStyles {
     fontWeight: FontWeightHelper.semiBold,
     color: Colors.white,
   );
+
+  static const TextStyle font48WhiteMedium = TextStyle(
+    fontSize: 48,
+    fontWeight: FontWeightHelper.medium,
+    color: Colors.white,
+  );
   static const TextStyle font12GreyLight = TextStyle(
     fontSize: 12,
     fontWeight: FontWeightHelper.light,
@@ -67,6 +73,11 @@ static const TextStyle font15RedMedium = TextStyle(
     fontSize: 15,
     fontWeight: FontWeightHelper.medium,
     color: Colors.red,
+  );
+  static const TextStyle font15WhiteRegular = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeightHelper.regular,
+    color: Colors.white,
   );
   static const TextStyle font16WhiteSemiBold = TextStyle(
     fontSize: 16,
