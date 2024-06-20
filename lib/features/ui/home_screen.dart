@@ -1,3 +1,4 @@
+import 'package:aflami/core/widgets/custom_arrow_back.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,7 +7,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('Home Screen')),
+      body: Center(child: CustomArrowBack()),
     );
   }
 }

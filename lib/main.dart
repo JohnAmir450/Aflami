@@ -1,4 +1,6 @@
 import 'package:aflami/core/helpers/bloc_observer.dart';
+import 'package:aflami/core/helpers/cache_helper.dart';
+import 'package:aflami/core/helpers/cahce_keys.dart';
 import 'package:aflami/core/routing/app_router.dart';
 import 'package:aflami/core/routing/routes.dart';
 import 'package:aflami/firebase_options.dart';
@@ -11,7 +13,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Bloc.observer = MyBlocObserver();
-
+await CacheHelper.init();
   runApp(MyApp(
     appRouter: AppRouter(),
   ));
@@ -37,8 +39,19 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.onboardingScreen,
+        initialRoute: Routes.loginScreen,
       ),
     );
+  }
+  String _getInitialRoute() {
+    bool? isLoggedIn = CacheHelper.getData(key: CacheKeys.loginKey) as bool?;
+    bool? isRegistered =
+        CacheHelper.getData(key: CacheKeys.registerKey) as bool?;
+
+    if (isLoggedIn == true || isRegistered == true) {
+      return Routes.homeScreen;
+    } else {
+      return Routes.loginScreen;
+    }
   }
 }
