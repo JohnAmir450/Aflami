@@ -8,7 +8,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: Colors.black,
   );
-
+ static const TextStyle font20WhiteSemiBold = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeightHelper.semiBold,
+    color: Colors.white,
+  );
   static const TextStyle font24BlackBold = TextStyle(
     fontSize: 24,
     fontWeight: FontWeightHelper.bold,
@@ -29,6 +33,11 @@ class TextStyles {
   static const TextStyle font12GreyLight = TextStyle(
     fontSize: 12,
     fontWeight: FontWeightHelper.light,
+    color: Color(0xffFAF3DD),
+  );
+  static const TextStyle font30WhiteSemibold = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeightHelper.semiBold,
     color: Color(0xffFAF3DD),
   );
 

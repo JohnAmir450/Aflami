@@ -36,7 +36,7 @@ class AppRouter {
 
       case Routes.homeScreen:
         return PageTransition(
-          child: const HomeScreen(),
+          child:  HomeScreen(),
           type: PageTransitionType.fade,
         );
       default:
