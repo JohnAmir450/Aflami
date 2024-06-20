@@ -1,7 +1,7 @@
-import 'package:aflami/features/ui/widgets/custom_drawer.dart';
-import 'package:aflami/features/ui/widgets/custom_movies-list_view.dart';
-import 'package:aflami/features/ui/widgets/custom_scrollable_appbar.dart';
-import 'package:aflami/features/ui/widgets/movies_list_view_item.dart';
+import 'package:aflami/features/home/ui/widgets/custom_drawer.dart';
+import 'package:aflami/features/home/ui/widgets/custom_movies-list_view.dart';
+import 'package:aflami/features/home/ui/widgets/custom_scrollable_appbar.dart';
+import 'package:aflami/features/home/ui/widgets/movies_list_view_item.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
