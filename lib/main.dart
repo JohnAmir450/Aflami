@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.loginScreen,
+        initialRoute: _getInitialRoute(),
       ),
     );
   }
