@@ -7,4 +7,5 @@ class ColorsManager {
   static const Color lightGrey = Color(0xffEDEDED);
   static const Color moreLighterGrey = Color(0xffFDFDFF);
   static const Color purple = Color(0xff4B0384);
+  static const Color mainPurple=Color(0xff892AEC);
 }

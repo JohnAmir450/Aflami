@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField(
       {super.key,
-      required this.hintText,
+       this.hintText,
       this.isObscureText = false,
       this.suffixIcon,
       this.onChanged,
@@ -15,9 +15,9 @@ class CustomTextFormField extends StatelessWidget {
       this.hintStyle,
       this.inputTextStyle,
       this.controller,
-      required this.validator,
+       this.validator,
       this.keyboardType});
-  final String hintText;
+  final String? hintText;
   final bool isObscureText;
   final Widget? suffixIcon;
   final InputBorder? focusedBorder;
@@ -26,7 +26,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextStyle? inputTextStyle;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
-  final String? Function(String?) validator;
+  final String? Function(String?)? validator;
   final void Function(String)? onChanged;
 
   @override
@@ -38,9 +38,9 @@ class CustomTextFormField extends StatelessWidget {
       cursorColor: ColorsManager.mainBlue,
       obscureText: isObscureText,
       keyboardType: keyboardType,
-      style: inputTextStyle ?? TextStyles.font14DarkBlueMedium,
+      style: inputTextStyle ?? TextStyles.font15WhiteRegular,
       decoration: InputDecoration(
-          fillColor: ColorsManager.moreLighterGrey,
+          fillColor: const Color(0xff3F1E88),
           filled: true,
           hintStyle: hintStyle ??
               TextStyles.font14GreyRegular
@@ -51,18 +51,18 @@ class CustomTextFormField extends StatelessWidget {
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
           enabledBorder: enabledBorder ??
-              customOutlineInputBorder(color: ColorsManager.lightGrey),
+              customOutlineInputBorder(color: ColorsManager.mainPurple),
           focusedBorder: focusedBorder ??
-              customOutlineInputBorder(color: ColorsManager.mainBlue),
+              customOutlineInputBorder(color: ColorsManager.mainPurple),
           errorBorder: customOutlineInputBorder(color: Colors.red),
           focusedErrorBorder: customOutlineInputBorder(color: Colors.red)),
     );
   }
 
-  OutlineInputBorder customOutlineInputBorder({required Color color}) {
+  OutlineInputBorder customOutlineInputBorder({ Color color =const Color(0xff3F1E88)}) {
     return OutlineInputBorder(
       borderSide: BorderSide(color: color, width: 1.3),
-      borderRadius: BorderRadius.circular(16),
+     
     );
   }
 }
