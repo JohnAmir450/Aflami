@@ -1,4 +1,5 @@
 import 'package:aflami/core/routing/routes.dart';
+import 'package:aflami/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:aflami/features/login/ui/login_screen.dart';
 import 'package:aflami/features/onboarding/ui/onboarding_screen.dart';
 import 'package:aflami/features/register/logic/register_cubit/register_cubit.dart';
@@ -17,8 +18,12 @@ class AppRouter {
         );
 
       case Routes.loginScreen:
-        return MaterialPageRoute(
-          builder: (_) => const LoginScreen(),
+        return PageTransition(
+          child: BlocProvider(
+            create: (context) => LoginCubit(),
+            child: const LoginScreen(),
+          ),
+          type: PageTransitionType.fade,
         );
 
       case Routes.registerScreen:
