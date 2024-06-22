@@ -1,4 +1,7 @@
+import 'package:aflami/core/helpers/errors_alret_dialog.dart';
+import 'package:aflami/core/helpers/extentions.dart';
 import 'package:aflami/core/helpers/spacing.dart';
+import 'package:aflami/core/routing/routes.dart';
 import 'package:aflami/core/thiming/styles.dart';
 import 'package:aflami/core/widgets/custom_arrow_back.dart';
 import 'package:aflami/core/widgets/custom_text_form_field.dart';
@@ -49,7 +52,9 @@ class SearchScreen extends StatelessWidget {
                 else if (state is SearchLoadingState)
                   const Center(child: CircularProgressIndicator())
                 else if (state is SearchFailureState)
-                  Text(state.errorMessage)
+                   CustomAlertDialog(error: 'state.errorMessage',onPressed: () {
+               context.pushReplacementNamed(Routes.searchScreen);
+             },)
                 else if (state is SearchSuccessState)
                   Expanded(
                     child: ListView.builder(

@@ -1,3 +1,4 @@
+import 'package:aflami/core/helpers/errors_alret_dialog.dart';
 import 'package:aflami/core/helpers/extentions.dart';
 import 'package:aflami/core/helpers/spacing.dart';
 import 'package:aflami/core/routing/routes.dart';
@@ -63,7 +64,9 @@ class NowPlayingListView extends StatelessWidget {
             ),
           );
         }else if(state is MoviesNowPlayingFailureState){
-          return Text(state.errorMessage,style: const TextStyle(color: Colors.white),);
+         return CustomAlertDialog(error: 'state.errorMessage',onPressed: () {
+               context.pushReplacementNamed(Routes.homeScreen);
+             },);
         }else {
           return const SizedBox.shrink();
         }
