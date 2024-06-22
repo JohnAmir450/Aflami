@@ -11,6 +11,7 @@ abstract class HomeRepo {
 Future<Either<Failure, List<MoviesModel>>> getNowPlaying(int page);
 Future<Either<Failure, List<MoviesModel>>> getUpcoming(int page);
   Future<Either<Failure, List<MoviesModel>>> getPopular();
+  Future<Either<Failure, List<MoviesModel>>> getTopRatedTVShows();
   Future<Either<Failure, List<MoviesModel>>> getSimilarMovies({required int id});
 
   Future<Either<Failure,TrailerModel>>getMovieTrailer({required int id});

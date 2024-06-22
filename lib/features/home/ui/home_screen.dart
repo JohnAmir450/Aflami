@@ -3,6 +3,7 @@ import 'package:aflami/features/home/ui/widgets/custom_upcoming_movies_button.da
 import 'package:aflami/features/home/ui/widgets/now_playing_list_view.dart';
 import 'package:aflami/features/home/ui/widgets/top_rated_list_view.dart';
 import 'package:aflami/features/home/ui/widgets/custom_scrollable_appbar.dart';
+import 'package:aflami/features/home/ui/widgets/top_rated_tv_shows.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -46,13 +47,17 @@ var scaffoldKey = GlobalKey<ScaffoldState>();
           ),
         const SliverToBoxAdapter(child: 
         NowPlayingListView(title: 'Now Playing',),),
-        const SliverToBoxAdapter(child: CustomUpcomingMoviesButton(),)
+        const SliverToBoxAdapter(child: CustomUpcomingMoviesButton(),),
+        const SliverToBoxAdapter(child: 
+        TopRateTVShows(title: 'Top Rated TV Shows',),)
 
         ],
       ),
     );
   }
 }
+
+
 
 
 
