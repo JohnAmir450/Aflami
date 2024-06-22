@@ -19,23 +19,13 @@ class TrailerItem extends StatelessWidget {
 
     return Container(
       margin: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          YoutubePlayer(
-            controller: _controller,
-            showVideoProgressIndicator: true,
-            progressIndicatorColor: Colors.amber,
-            onReady: () {
-              // You can perform additional actions here when the player is ready.
-            },
-          ),
-          const SizedBox(height: 8.0),
-          Text(
-            trailer.name ?? 'No title',
-            style: const TextStyle(color: Colors.white),
-            textAlign: TextAlign.center,
-          ),
-        ],
+      child: YoutubePlayer(
+        controller: _controller,
+        showVideoProgressIndicator: true,
+        progressIndicatorColor: Colors.amber,
+        onReady: () {
+            
+        },
       ),
     );
   }

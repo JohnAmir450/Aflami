@@ -141,4 +141,24 @@ class HomeRepoImpl extends HomeRepo {
     
   }
   }
+  
+  @override
+  Future<Either<Failure, List<MoviesModel>>> getTopRatedTVShows()async {
+       try {
+      var data = await _apiService.get(
+        endPoints: 'tv/top_rated',
+      );
+      List<MoviesModel> movies = [];
+      for (var item in data['results']) {
+        movies.add(MoviesModel.fromJson(item));
+      }
+      return right(movies);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }

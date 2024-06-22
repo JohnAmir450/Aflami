@@ -1,11 +1,13 @@
 import 'package:aflami/core/routing/routes.dart';
 import 'package:aflami/features/home/data/models/movies_model.dart';
 import 'package:aflami/features/home/data/repos/home_repo_implementation.dart';
+import 'package:aflami/features/home/logic/home_cubit/home_cubit_cubit.dart';
 import 'package:aflami/features/home/logic/now_playing_cubit/now_playing_cubit.dart';
 import 'package:aflami/features/home/logic/popular_cubit/popular_cubit.dart';
 import 'package:aflami/features/home/logic/search_cubit.dart/search_cubit.dart';
 import 'package:aflami/features/home/logic/similar_movies_cubit/similar_movies_cubit.dart';
 import 'package:aflami/features/home/logic/top_rated_cubit/top_rated_cubit.dart';
+import 'package:aflami/features/home/logic/top_rated_tv_shows/top_rated_tv_shows_cubit.dart';
 import 'package:aflami/features/home/logic/trailer_cubit/trailer_cubit.dart';
 import 'package:aflami/features/home/logic/upcoming_cubit/upcoming_cubit.dart';
 import 'package:aflami/features/home/ui/search_screen.dart';
@@ -52,6 +54,7 @@ class AppRouter {
       case Routes.homeScreen:
         return PageTransition(
           child: MultiBlocProvider(providers: [
+            BlocProvider(create: (context) => HomeCubit()..getUserData()),
             BlocProvider(
               create: ((context) =>
                   TopRatedCubit(gitIt.get<HomeRepoImpl>())..getTopRated(1)),
@@ -65,7 +68,11 @@ class AppRouter {
                   ..getNowPlaying(1))),
             BlocProvider(
                 create: (context) => UpcomingCubit(gitIt.get<HomeRepoImpl>())
-                  ..getUpcomingMovies(1))
+                  ..getUpcomingMovies(1)),
+            BlocProvider(
+                create: ((context) =>
+                    TopRatedTvShowsCubit(gitIt.get<HomeRepoImpl>())
+                      ..getTopRatedTVShows()))
           ], child: const HomeScreen()),
           type: PageTransitionType.fade,
         );

@@ -27,9 +27,6 @@ class CustomMovieItem extends StatelessWidget {
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 9, vertical: 8),
-        decoration: BoxDecoration(
-          
-        ),
         child: Column(
           children: [
             ClipRRect(
@@ -43,7 +40,7 @@ class CustomMovieItem extends StatelessWidget {
             ),
             verticalSpace(5.h),
             Text(
-              moviesModel.originalTitle.toString(),textAlign: TextAlign.center,
+              moviesModel.originalTitle??'',textAlign: TextAlign.center,
               style: TextStyles.font15WhiteRegular,
             )
           ],

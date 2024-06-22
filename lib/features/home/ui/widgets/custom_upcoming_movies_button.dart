@@ -3,9 +3,7 @@ import 'package:aflami/core/helpers/spacing.dart';
 import 'package:aflami/core/routing/routes.dart';
 import 'package:aflami/core/thiming/styles.dart';
 import 'package:aflami/core/widgets/custom_text_button.dart';
-import 'package:aflami/features/home/logic/upcoming_cubit/upcoming_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomUpcomingMoviesButton extends StatelessWidget {
