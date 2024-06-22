@@ -11,6 +11,7 @@ class Routes {
 //home
 
   static const String homeScreen = '/homeScreen';
+   static const String upcomingMoviesScreen = '/upcomingMoviesScreen';
   static const String searchScreen = '/searchScreen';
 
   static const String movieDetails = '/movieDetails';
