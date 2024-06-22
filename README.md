@@ -26,6 +26,6 @@ Aflami is a dynamic mobile application designed to provide users with comprehens
 ## Skills Gained
 - Proficiency in Flutter and Dart for mobile app development.
 - Experience with Firebase services for authentication and data management.
-- Understanding of state management using the BLoC pattern.
+- Implementing of state management using the BLoC pattern.
 - Ability to integrate and handle RESTful APIs.
 - Enhanced skills in designing intuitive and responsive user interfaces.
