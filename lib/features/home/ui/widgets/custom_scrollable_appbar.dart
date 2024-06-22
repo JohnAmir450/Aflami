@@ -1,8 +1,8 @@
-import 'package:aflami/core/helpers/errors_alret_dialog.dart';
 import 'package:aflami/core/helpers/extentions.dart';
 import 'package:aflami/core/networking/constants.dart';
 import 'package:aflami/core/routing/routes.dart';
 import 'package:aflami/core/thiming/colors.dart';
+import 'package:aflami/core/widgets/custom_alret_dialog.dart';
 import 'package:aflami/features/home/logic/popular_cubit/popular_cubit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';

@@ -13,17 +13,19 @@ class CustomMovieItem extends StatelessWidget {
   final MoviesModel moviesModel;
   final double? height;
   final double? width;
-  
+
   const CustomMovieItem({
     super.key,
-    required this.moviesModel, this.height, this.width,
+    required this.moviesModel,
+    this.height,
+    this.width,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-         context.pushNamed(Routes.movieDetails,arguments:  moviesModel);
+      onTap: () {
+        context.pushNamed(Routes.movieDetails, arguments: moviesModel);
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 9, vertical: 8),
@@ -32,15 +34,30 @@ class CustomMovieItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: CachedNetworkImage(
-                imageUrl:
-                    '${Constants.imageUrl}${moviesModel.backdropPath}',fit: BoxFit.cover,height:height?? 150.h,width: width ,
-                placeholder: (context, url) => const Center(child:  CircularProgressIndicator(color: ColorsManager.mainPurple,)),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+                imageUrl: '${Constants.imageUrl}${moviesModel.backdropPath}',
+                fit: BoxFit.cover,
+                height: height ?? 150.h,
+                width: width ?? 200.w,
+                placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(
+                  color: ColorsManager.mainPurple,
+                )),
+                errorWidget: (context, url, error) => const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.error,
+                      color: Colors.grey,
+                    ),
+                    Text('No photo founded',style: TextStyles.font13GreyRegular,)
+                  ],
+                ),
               ),
             ),
             verticalSpace(5.h),
             Text(
-              moviesModel.originalTitle??'',textAlign: TextAlign.center,
+              moviesModel.originalTitle ?? '',
+              textAlign: TextAlign.center,
               style: TextStyles.font15WhiteRegular,
             )
           ],

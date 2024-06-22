@@ -1,8 +1,8 @@
-import 'package:aflami/core/helpers/errors_alret_dialog.dart';
 import 'package:aflami/core/helpers/extentions.dart';
 import 'package:aflami/core/helpers/spacing.dart';
 import 'package:aflami/core/routing/routes.dart';
 import 'package:aflami/core/thiming/styles.dart';
+import 'package:aflami/core/widgets/custom_alret_dialog.dart';
 import 'package:aflami/features/home/logic/top_rated_tv_shows/top_rated_tv_shows_cubit.dart';
 import 'package:aflami/features/home/ui/widgets/movies_list_view_item.dart';
 import 'package:flutter/material.dart';
