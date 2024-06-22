@@ -1,3 +1,4 @@
+import 'package:aflami/core/helpers/errors_alret_dialog.dart';
 import 'package:aflami/core/helpers/extentions.dart';
 import 'package:aflami/core/networking/constants.dart';
 import 'package:aflami/core/routing/routes.dart';
@@ -18,17 +19,25 @@ SliverAppBar customScrollableAppBar(BuildContext context, int currentIndex,
           icon: const Icon(
             Icons.menu,
             color: Colors.white,
-          )),actions: [
-            IconButton(onPressed: (){
-              context.pushNamed(Routes.searchScreen);
-            },icon:const Icon(FontAwesomeIcons.magnifyingGlass,color: Colors.white,) ,)
-          ],
+          )),
+      actions: [
+        IconButton(
+          onPressed: () {
+            context.pushNamed(Routes.searchScreen);
+          },
+          icon: const Icon(
+            FontAwesomeIcons.magnifyingGlass,
+            color: Colors.white,
+          ),
+        )
+      ],
       expandedHeight: MediaQuery.sizeOf(context).height / 1.5,
       // pinned: true,
       floating: true,
       flexibleSpace: BlocBuilder<PopularCubit, PopularState>(
         builder: (context, state) {
           if (state is MoviesPopularSuccessState) {
+             
             return FlexibleSpaceBar(
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -53,8 +62,9 @@ SliverAppBar customScrollableAppBar(BuildContext context, int currentIndex,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 6.0),
                         child: GestureDetector(
-                          onTap: (){
-                            context.pushNamed(Routes.movieDetails,arguments: state.movies[index]);
+                          onTap: () {
+                            context.pushNamed(Routes.movieDetails,
+                                arguments: state.movies[index]);
                           },
                           child: CachedNetworkImage(
                             imageUrl:
@@ -74,9 +84,9 @@ SliverAppBar customScrollableAppBar(BuildContext context, int currentIndex,
                   options: options),
             );
           } else if (state is MoviesPopularFailureState) {
-            return Center(
-              child: Text(state.errorMessage),
-            );
+            return CustomAlertDialog(error: 'state.errorMessage',onPressed: () {
+               context.pushReplacementNamed(Routes.homeScreen);
+             },);
           } else {
             return const Center(child: CircularProgressIndicator());
           }

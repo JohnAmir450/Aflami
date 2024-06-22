@@ -1,4 +1,4 @@
-import 'package:aflami/core/helpers/custom_snak_bar.dart';
+import 'package:aflami/core/helpers/errors_alret_dialog.dart';
 import 'package:aflami/core/thiming/styles.dart';
 import 'package:aflami/core/widgets/custom_arrow_back.dart';
 import 'package:aflami/core/widgets/custom_pages_numbers.dart';
@@ -35,11 +35,7 @@ class UpcomingMoviesScreen extends StatelessWidget {
               listenWhen: (previous, current) => current is MoviesUpcomingSuccessState || current is MoviesUpcomingFailureState,
               listener: (context, state) {
                 if (state is MoviesUpcomingFailureState) {
-                  showSnackBar(
-                    color: Colors.red,
-                    context,
-                    text: ('Failed to load movies: ${state.errorMessage}'),
-                  );
+                  setupErrorState(context, state.errorMessage);
                 }
               },
               builder: (context, state) {

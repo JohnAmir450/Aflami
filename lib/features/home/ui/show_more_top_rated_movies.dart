@@ -1,4 +1,4 @@
-import 'package:aflami/core/helpers/custom_snak_bar.dart';
+import 'package:aflami/core/helpers/errors_alret_dialog.dart';
 import 'package:aflami/core/widgets/custom_arrow_back.dart';
 import 'package:aflami/core/widgets/custom_pages_numbers.dart';
 import 'package:aflami/features/home/logic/top_rated_cubit/top_rated_cubit.dart';
@@ -34,11 +34,7 @@ class ShowMoreTopRatedMoviesMovies extends StatelessWidget {
                 current is MoviesTopRatedFailureState,
             listener: (context, state) {
               if (state is MoviesTopRatedFailureState) {
-                showSnackBar(
-                  color: Colors.red,
-                  context,
-                  text: ('Failed to load movies: ${state.errorMessage}'),
-                );
+                setupErrorState(context, state.errorMessage);
               }
             },
             builder: (context, state) {

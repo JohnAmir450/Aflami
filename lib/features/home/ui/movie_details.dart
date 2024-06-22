@@ -1,5 +1,8 @@
+import 'package:aflami/core/helpers/errors_alret_dialog.dart';
+import 'package:aflami/core/helpers/extentions.dart';
 import 'package:aflami/core/helpers/spacing.dart';
 import 'package:aflami/core/networking/constants.dart';
+import 'package:aflami/core/routing/routes.dart';
 import 'package:aflami/core/thiming/styles.dart';
 import 'package:aflami/core/widgets/custom_arrow_back.dart';
 import 'package:aflami/features/home/data/models/movies_model.dart';
@@ -96,9 +99,16 @@ class MovieDetails extends StatelessWidget {
                       if (state is TrailerLoadingState) {
                         return const Center(child: CircularProgressIndicator());
                       } else if (state is TrailerFailureState) {
-                        return Center(child: Text(state.errorMessage));
+                        return CustomAlertDialog(
+                          error: 'state.errorMessage',
+                          onPressed: () {
+                            context.pushReplacementNamed(Routes.homeScreen);
+                          },
+                        );
                       } else if (state is TrailerSuccessState) {
-                        return TrailerItem(trailer: state.trailerModel.results![0],);
+                        return TrailerItem(
+                          trailer: state.trailerModel.results![0],
+                        );
                       }
                       return Container();
                     },
@@ -126,7 +136,12 @@ class MovieDetails extends StatelessWidget {
                     ),
                   );
                 } else if (state is SimilarMoviesFailureState) {
-                  return Center(child: Text(state.errorMessage));
+                  return CustomAlertDialog(
+                    error: 'state.errorMessage',
+                    onPressed: () {
+                      context.pushReplacementNamed(Routes.homeScreen);
+                    },
+                  );
                 } else {
                   return const Center(child: CircularProgressIndicator());
                 }

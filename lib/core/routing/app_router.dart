@@ -14,7 +14,7 @@ import 'package:aflami/features/home/ui/search_screen.dart';
 import 'package:aflami/features/home/ui/show_more_top_rated_movies.dart';
 import 'package:aflami/features/home/ui/movie_details.dart';
 import 'package:aflami/features/home/ui/upcoming_movies_screen.dart';
-import 'package:aflami/features/home/ui/widgets/show_more_now_playing-movies.dart';
+import 'package:aflami/features/home/ui/show_more_now_playing-movies.dart';
 import 'package:aflami/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:aflami/features/login/ui/login_screen.dart';
 import 'package:aflami/features/onboarding/ui/onboarding_screen.dart';

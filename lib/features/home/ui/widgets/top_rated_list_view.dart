@@ -1,3 +1,4 @@
+import 'package:aflami/core/helpers/errors_alret_dialog.dart';
 import 'package:aflami/core/helpers/extentions.dart';
 import 'package:aflami/core/helpers/spacing.dart';
 import 'package:aflami/core/routing/routes.dart';
@@ -54,12 +55,9 @@ class TopRatedListView extends StatelessWidget {
             ),
           );
         } else if (state is MoviesTopRatedFailureState) {
-          return Center(
-            child: Text(
-              state.errorMessage,
-              style: TextStyles.font16WhiteSemiBold,
-            ),
-          );
+          return CustomAlertDialog(error: 'state.errorMessage',onPressed: () {
+               context.pushReplacementNamed(Routes.homeScreen);
+             },);
         } else {
           return const SizedBox.shrink();    
         }
