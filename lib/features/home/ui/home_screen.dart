@@ -1,4 +1,5 @@
 import 'package:aflami/features/home/ui/widgets/custom_drawer.dart';
+import 'package:aflami/features/home/ui/widgets/custom_upcoming_movies_button.dart';
 import 'package:aflami/features/home/ui/widgets/now_playing_list_view.dart';
 import 'package:aflami/features/home/ui/widgets/top_rated_list_view.dart';
 import 'package:aflami/features/home/ui/widgets/custom_scrollable_appbar.dart';
@@ -44,12 +45,16 @@ var scaffoldKey = GlobalKey<ScaffoldState>();
             child: TopRatedListView(title: 'Top Rated',),
           ),
         const SliverToBoxAdapter(child: 
-        NowPlayingListView(title: 'Now Playing',),)
+        NowPlayingListView(title: 'Now Playing',),),
+        const SliverToBoxAdapter(child: CustomUpcomingMoviesButton(),)
+
         ],
       ),
     );
   }
 }
+
+
 
 
 

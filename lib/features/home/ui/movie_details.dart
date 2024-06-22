@@ -4,11 +4,11 @@ import 'package:aflami/core/thiming/styles.dart';
 import 'package:aflami/core/widgets/custom_arrow_back.dart';
 import 'package:aflami/features/home/data/models/movies_model.dart';
 import 'package:aflami/features/home/logic/similar_movies_cubit/similar_movies_cubit.dart';
+import 'package:aflami/features/home/logic/trailer_cubit/trailer_cubit.dart';
 import 'package:aflami/features/home/ui/widgets/movies_list_view_item.dart';
+import 'package:aflami/features/home/ui/widgets/trailer_item.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,6 +21,10 @@ class MovieDetails extends StatelessWidget {
     String releaseDate = moviesModel.releaseDate ?? '';
     DateTime dateTime = DateTime.parse(releaseDate);
     int year = dateTime.year;
+
+    // Fetch trailers when the screen is loaded
+    context.read<TrailerCubit>().getMovieTrailers(moviesModel.id!);
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -72,7 +76,10 @@ class MovieDetails extends StatelessWidget {
                     ],
                   ),
                   verticalSpace(25.h),
-                  Text('OverView',style: TextStyles.font26WhiteBold.copyWith(fontSize: 20),),
+                  Text(
+                    'Overview',
+                    style: TextStyles.font26WhiteBold.copyWith(fontSize: 20),
+                  ),
                   verticalSpace(15.h),
                   Text(
                     moviesModel.overview!,
@@ -81,9 +88,26 @@ class MovieDetails extends StatelessWidget {
                   ),
                   verticalSpace(30.h),
                   Text(
-                    'Similar Movies :',
+                    'Trailers',
                     style: TextStyles.font26WhiteBold.copyWith(fontSize: 20),
-                  )
+                  ),
+                  BlocBuilder<TrailerCubit, TrailerState>(
+                    builder: (context, state) {
+                      if (state is TrailerLoadingState) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (state is TrailerFailureState) {
+                        return Center(child: Text(state.errorMessage));
+                      } else if (state is TrailerSuccessState) {
+                        return TrailerItem(trailer: state.trailerModel.results![0],);
+                      }
+                      return Container();
+                    },
+                  ),
+                  verticalSpace(30.h),
+                  Text(
+                    'Similar Movies',
+                    style: TextStyles.font26WhiteBold.copyWith(fontSize: 20),
+                  ),
                 ],
               ),
             ),
@@ -96,15 +120,15 @@ class MovieDetails extends StatelessWidget {
                     height: 250.h,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                        itemCount: state.movies.length,
-                        itemBuilder: (context, index) =>
-                            CustomMovieItem(moviesModel: state.movies[index])),
+                      itemCount: state.movies.length,
+                      itemBuilder: (context, index) =>
+                          CustomMovieItem(moviesModel: state.movies[index]),
+                    ),
                   );
-                }else if(state is SimilarMoviesFailureState){
-                  return Center(child: Text(state.errorMessage),);
-
-                }else{
-                  return Center(child: const CircularProgressIndicator()  ,);
+                } else if (state is SimilarMoviesFailureState) {
+                  return Center(child: Text(state.errorMessage));
+                } else {
+                  return const Center(child: CircularProgressIndicator());
                 }
               },
             ),

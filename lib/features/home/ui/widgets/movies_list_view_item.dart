@@ -7,7 +7,6 @@ import 'package:aflami/core/thiming/styles.dart';
 import 'package:aflami/features/home/data/models/movies_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomMovieItem extends StatelessWidget {

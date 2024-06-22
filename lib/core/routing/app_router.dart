@@ -6,9 +6,12 @@ import 'package:aflami/features/home/logic/popular_cubit/popular_cubit.dart';
 import 'package:aflami/features/home/logic/search_cubit.dart/search_cubit.dart';
 import 'package:aflami/features/home/logic/similar_movies_cubit/similar_movies_cubit.dart';
 import 'package:aflami/features/home/logic/top_rated_cubit/top_rated_cubit.dart';
+import 'package:aflami/features/home/logic/trailer_cubit/trailer_cubit.dart';
+import 'package:aflami/features/home/logic/upcoming_cubit/upcoming_cubit.dart';
 import 'package:aflami/features/home/ui/search_screen.dart';
 import 'package:aflami/features/home/ui/show_more_top_rated_movies.dart';
 import 'package:aflami/features/home/ui/movie_details.dart';
+import 'package:aflami/features/home/ui/upcoming_movies_screen.dart';
 import 'package:aflami/features/home/ui/widgets/show_more_now_playing-movies.dart';
 import 'package:aflami/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:aflami/features/login/ui/login_screen.dart';
@@ -59,7 +62,10 @@ class AppRouter {
             ),
             BlocProvider(
                 create: ((context) => NowPlayingCubit(gitIt.get<HomeRepoImpl>())
-                  ..getNowPlaying(1)))
+                  ..getNowPlaying(1))),
+            BlocProvider(
+                create: (context) => UpcomingCubit(gitIt.get<HomeRepoImpl>())
+                  ..getUpcomingMovies(1))
           ], child: const HomeScreen()),
           type: PageTransitionType.fade,
         );
@@ -74,9 +80,17 @@ class AppRouter {
       case Routes.movieDetails:
         var moviesModel = settings.arguments as MoviesModel;
         return PageTransition(
-            child: BlocProvider(
-              create: (context) => SimilarMoviesCubit(gitIt.get<HomeRepoImpl>())
-                ..getSimilarMovies(movieId: moviesModel.id!),
+            child: MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) =>
+                      SimilarMoviesCubit(gitIt.get<HomeRepoImpl>())
+                        ..getSimilarMovies(movieId: moviesModel.id!),
+                ),
+                BlocProvider(
+                    create: (context) => TrailerCubit(gitIt.get<HomeRepoImpl>())
+                      ..getMovieTrailers(moviesModel.id!))
+              ],
               child: MovieDetails(
                 moviesModel: moviesModel,
               ),
@@ -95,8 +109,18 @@ class AppRouter {
       case Routes.showMoreNowPlayingMovies:
         return PageTransition(
             child: BlocProvider(
-              create: (context) => NowPlayingCubit(gitIt.get<HomeRepoImpl>())..getNowPlaying(1),
+              create: (context) =>
+                  NowPlayingCubit(gitIt.get<HomeRepoImpl>())..getNowPlaying(1),
               child: const ShowMoreNowPlayingMovies(),
+            ),
+            type: PageTransitionType.fade);
+
+      case Routes.upcomingMoviesScreen:
+        return PageTransition(
+            child: BlocProvider(
+              create: (context) => UpcomingCubit(gitIt.get<HomeRepoImpl>())
+                ..getUpcomingMovies(1),
+              child: const UpcomingMoviesScreen(),
             ),
             type: PageTransitionType.fade);
       default:
