@@ -1,10 +1,9 @@
 import 'package:aflami/features/home/ui/widgets/custom_drawer.dart';
-import 'package:aflami/features/home/ui/widgets/custom_movies-list_view.dart';
+import 'package:aflami/features/home/ui/widgets/now_playing_list_view.dart';
+import 'package:aflami/features/home/ui/widgets/top_rated_list_view.dart';
 import 'package:aflami/features/home/ui/widgets/custom_scrollable_appbar.dart';
-import 'package:aflami/features/home/ui/widgets/movies_list_view_item.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,6 +29,7 @@ var scaffoldKey = GlobalKey<ScaffoldState>();
             context,
             currentIndex,
             options: CarouselOptions(
+              enlargeCenterPage: true,
               autoPlay: true,
               aspectRatio: 0.1,
               autoPlayAnimationDuration: const Duration(seconds: 1),
@@ -40,16 +40,17 @@ var scaffoldKey = GlobalKey<ScaffoldState>();
               },
             ),
           ),
-          SliverToBoxAdapter(
-            child: CustomListViewMovie(height: 200.h,title: 'Top Rated',listItem: CustomMovieItem(height: 150.h,),),
+          const SliverToBoxAdapter(
+            child: TopRatedListView(title: 'Top Rated',),
           ),
-          SliverToBoxAdapter(child: CustomListViewMovie(height: 400,title: 'Popular',listItem: CustomMovieItem(height: 340.h,width:200.w,),),),
-          SliverToBoxAdapter(child: CustomListViewMovie(height: 200.h,title: 'Upcoming',listItem: CustomMovieItem(height: 150.h,width: 250.w,),),),
-
+        const SliverToBoxAdapter(child: 
+        NowPlayingListView(title: 'Now Playing',),)
         ],
       ),
     );
   }
 }
+
+
 
 

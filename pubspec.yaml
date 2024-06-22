@@ -37,7 +37,6 @@ dependencies:
   dio: ^5.4.3+1
   equatable: ^2.0.5
   firebase_auth: null
-  animated_indicator_dot:
   firebase_core: ^2.31.0
   flutter:
     sdk: flutter
@@ -45,6 +44,7 @@ dependencies:
   flutter_native_splash: ^2.4.0
   flutter_screenutil: ^5.9.3
   flutter_svg: null
+  font_awesome_flutter: ^10.7.0
   get_it: ^7.7.0
   image_picker: ^1.1.1
   page_transition: ^2.1.0
