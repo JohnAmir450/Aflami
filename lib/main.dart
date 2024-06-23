@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
     if (isLoggedIn == true || isRegistered == true) {
       return Routes.homeScreen;
     } else {
-      return Routes.loginScreen;
+      return Routes.onboardingScreen;
     }
   }
 }
