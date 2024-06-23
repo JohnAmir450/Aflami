@@ -43,6 +43,8 @@ Aflami is a dynamic mobile application designed to provide users with comprehens
 
 ![Screenshot 2024-06-22 175033](https://github.com/JohnAmir450/Aflami/assets/136222860/41b107de-b95b-4369-b8cd-93dc2bd07e59)
 ![Screenshot 2024-06-22 221126](https://github.com/JohnAmir450/Aflami/assets/136222860/dddc56e4-f121-4b25-bce0-53e613b8a074)
+![image](https://github.com/JohnAmir450/Aflami/assets/136222860/044c6ce8-5a94-4490-9041-978ceec84d5b)
+
 ![Screenshot 2024-06-22 221144](https://github.com/JohnAmir450/Aflami/assets/136222860/a50ef33e-6ace-4e59-8089-91a8653ba4b6)
 
 ![Screenshot 2024-06-22 174847](https://github.com/JohnAmir450/Aflami/assets/136222860/ee7bc633-9791-4ebe-8f9c-bbaad9311591)
