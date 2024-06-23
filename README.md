@@ -29,3 +29,29 @@ Aflami is a dynamic mobile application designed to provide users with comprehens
 - Implementing of state management using the BLoC pattern.
 - Ability to integrate and handle RESTful APIs.
 - Enhanced skills in designing intuitive and responsive user interfaces.
+
+## Some screenshots from the appliction
+
+![image](https://github.com/JohnAmir450/Aflami/assets/136222860/8e030c32-932b-4ebd-8cfe-97d6b3008bc0)
+
+![image](https://github.com/JohnAmir450/Aflami/assets/136222860/6bf9a7bb-946e-403a-85d6-73a70fb532f4)
+
+
+![Screenshot 2024-06-20 153421](https://github.com/JohnAmir450/Aflami/assets/136222860/b343aa7d-0568-4078-bc5a-b27e2456fdfb)
+
+![Screenshot 2024-06-20 140645](https://github.com/JohnAmir450/Aflami/assets/136222860/457b07c7-0f0f-4940-a490-6737fcb150b2)
+
+![Screenshot 2024-06-22 175033](https://github.com/JohnAmir450/Aflami/assets/136222860/41b107de-b95b-4369-b8cd-93dc2bd07e59)
+![Screenshot 2024-06-22 221126](https://github.com/JohnAmir450/Aflami/assets/136222860/dddc56e4-f121-4b25-bce0-53e613b8a074)
+![Screenshot 2024-06-22 221144](https://github.com/JohnAmir450/Aflami/assets/136222860/a50ef33e-6ace-4e59-8089-91a8653ba4b6)
+
+![Screenshot 2024-06-22 174847](https://github.com/JohnAmir450/Aflami/assets/136222860/ee7bc633-9791-4ebe-8f9c-bbaad9311591)
+![Screenshot 2024-06-22 205044](https://github.com/JohnAmir450/Aflami/assets/136222860/5f344ae3-c06a-48dd-86a1-5c96c667c262)
+![Screenshot 2024-06-22 174734](https://github.com/JohnAmir450/Aflami/assets/136222860/b6e96375-b405-47f5-a5eb-1b0f08af4cad)
+
+
+
+
+
+
+ 
